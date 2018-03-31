@@ -1,0 +1,16 @@
+h2 Log In
+form(name='loginForm', ng-controller='AuthController', ng-submit='login(loginForm.$valid)', novalidate)
+	div
+		label(for='username') Username
+		input(name='username', type='text', placeholder='username', ng-model='user.username', required)
+	div
+		label(for='password') Password
+		input(name='password', type='password', placeholder='password', ng-model='user.username', required)
+	div
+		input(type='submit' value='login' ng-disabled='loginForm.$invalid')
+		div(ng-show='error')
+			strong(ng-bind='error')
+div
+	a(href='/oauth/facebook') Log in with Facebook
+div
+	a(href='/oauth/google') Log in with Google

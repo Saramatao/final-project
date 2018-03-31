@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Prompt';
+  color: #333;
+}
+
+input {
+  padding-left: 10px !important;
+  margin-bottom: 0px !important;
+}
+
+textarea {
+  padding-left: 10px !important;
+  margin-bottom: 0px !important;
+}
+
+.add-cart-btn {
+  background-color: orange;
+}
+
+.add-cart-btn:hover {
+  background-color: white;
+  color: #333;
+  border: 1px solid grey;
+}
+
+.mar-top-0 { margin-top: 0px !important; }
+.mar-bot-0 { margin-bottom: 0px !important; }
+.mar-left-0 { margin-left: 0px !important; }
+.mar-right-0 { margin-right: 0px !important; }
+
+.mar-top-10 { margin-top: 10px !important; }
+.mar-bot-10 { margin-bottom: 10px !important; }
+.mar-left-10 { margin-left: 10px !important; }
+.mar-right-10 { margin-right: 10px !important; }
+
+.mar-top-25 { margin-top: 25px !important; }
+.mar-bot-25 { margin-bottom: 25px !important; }
+.mar-left-25 { margin-left: 25px !important; }
+.mar-right-25 { margin-right: 25px !important; }
+
+.delete-detail-btn {
+  background-color: #AA0000;
+}
+
+.delete-detail-btn:hover {
+  background-color: #FF0000;
+}
+
+.edit-collection-detail-btn {
+  margin-left:5%; 
+  max-height:50px; 
+  overflow:hidden; 
+  margin-bottom:10px; 
+  border-radius:3px;
+}
+
+.edit-collection-detail-btn:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.light-grey {
+  background-color:#ddd;
+  transition: background-color 500ms linear;
+}
+
+.light-grey-2 {
+  background-color:#ddd;
+}
+
+/* div {
+  border: 1px solid red;
+}
+
+span {
+  border: 1px solid blue;
+} */
+
+i:hover {
+  cursor: pointer;
+}
+
+.w10 { width: 10%; }
+.w20 { width: 20%; }
+.w30 { width: 30%; }
+.w40 { width: 40%; }
+.w50 { width: 50%; }
+.w60 { width: 60%; }
+.w70 { width: 70%; }
+.w80 { width: 80%; }
+.w90 { width: 90%; }
+.w100 { width: 100%; }
+
+.h100 { height: 100%; }
+
+.color-main {
+  background-color: #2BBBAD;
+}
+
+.color-main-text {
+  color: #2BBBAD;
+}
+
+nav ul a.nav-hover:hover {
+  background-color: white;
+  color: #2BBBAD;
+  outline-offset: -5px;
+  outline: 2px #2BBBAD dashed;
+}
+
+.dash-hover:hover {
+  color: #2BBBAD;
+  outline-offset: -5px;
+  outline: 2px #2BBBAD dashed;
+}
+
+.under-line {
+  text-decoration: underline;
+}
+
+.auto-margin {
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.marbot0 {
+  margin-bottom: 0;
+}
+
+.pc-container {
+  width: 1150px;
+}
+
+.tablet-container {
+  width: 995px;
+}
+
+.custom-card-content {
+  margin-left:20px;
+}
+
+.mapper-box {
+  width: 200px; 
+  height: 150px; 
+  margin-left: 40px; 
+  margin-top: 40px;
+}
+
+.check-box-container tr td {
+  /* border: red 1px solid; */
+  width: 25%;
+}
+
+.price-line {
+  text-decoration: line-through; 
+  margin-right:5px;
+}
+
+.card-box {
+  /* border:solid yellow 1px;  */
+  width:200px; 
+  display:inline-block; 
+  margin:10px;
+  margin-bottom:30px;
+  border-radius:3px;
+}
+
+.star-rating {
+  color: #00BBFF;
+  margin-left: -3px;
+}
+
+.card-padding {
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.card-teacher-title {
+  font-size:0.8em; 
+  color:rgb(190, 190, 190); 
+  margin-bottom:10px;
+}
+
+.card-course-title {
+  font-size:1em;
+}
+
+
+.card-footer-price {
+  text-align:right;
+  font-size:17px;
+}
+
+.flex {
+  display: flex;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.menu-edit-user:hover {
+  color: #00BBFF;
+  margin-left: 5px;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+}
+
+/* UPLOAD PROGRESS BAR */
+
+.progress_bar {
+  margin: 10px 0;
+  padding: 3px;
+  border: 1px solid #000;
+  font-size: 14px;
+  clear: both;
+  opacity: 0;
+  -moz-transition: opacity 1s linear;
+  -o-transition: opacity 1s linear;
+  -webkit-transition: opacity 1s linear;
+}
+
+label {
+  margin-left: 0 !important;
+}
+
+.progress_bar.loading {
+  opacity: 1.0;
+} 
+
+.progress_bar .percent {
+  background-color: #99ccff;
+  height: auto;
+  width: 0;
+}
+
+/* PDF CONTAINER */
+
+#upload-button {
+  width: 150px;
+  display: block;
+  margin: 20px auto;
+}
+
+#file-to-upload {
+  display: none;
+}
+
+#pdf-main-container {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+#pdf-loader {
+  display: none;
+  text-align: center;
+  color: #999999;
+  font-size: 13px;
+  line-height: 100px;
+  height: 100px;
+}
+
+#pdf-contents {
+  display: none;
+}
+
+#pdf-meta {
+  overflow: hidden;
+  margin: 0 0 20px 0;
+}
+
+#pdf-buttons {
+  float: left;
+}
+
+#page-count-container {
+  float: right;
+}
+
+#pdf-current-page {
+  display: inline;
+}
+
+#pdf-total-pages {
+  display: inline;
+}
+
+#pdf-canvas {
+  border: 1px solid rgba(0,0,0,0.2);
+  box-sizing: border-box;
+}
+
+#page-loader {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  display: none;
+  color: #999999;
+  font-size: 13px;
+}
+
+#download-image {
+  width: 150px;
+  display: block;
+  margin: 20px auto 0 auto;
+  font-size: 13px;
+  text-align: center;
+}
