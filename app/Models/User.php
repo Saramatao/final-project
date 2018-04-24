@@ -39,6 +39,16 @@ class User extends Authenticatable
   {
     return $this->hasMany('App\Models\Review', 'user_id');
   }
+
+  public function notification()
+  {
+    return $this->hasMany('App\Models\Notification', 'user_id');
+  }
+
+  public function lastThreeNotification()
+  {
+    return $this->hasMany('App\Models\Notification', 'user_id')->limit(3);
+  }
 }
 
   // use Notifiable;

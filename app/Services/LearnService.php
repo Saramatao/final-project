@@ -28,11 +28,11 @@ class LearnService
   {
   	$course_id = $this->course->getIdBySlug($slug);
   	$isPurchase = $this->purchase->checkPurchaseCourse($course_id, $user_id);
-
+    $isOwner = $this->course->checkOwner($user_id, $course_id);
     $data = $this->course->_learn_dashboard($slug, $user_id);
     
-	  if (! ($data && $isPurchase))
-      return false; 
+	  if (! ($data && ($isPurchase || $isOwner)))
+      return false;   
 
     $data = $this->course->distinctLecture($data);
     $data['count_lecture'] = $this->course->countLecture($data);

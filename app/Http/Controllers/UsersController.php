@@ -9,6 +9,7 @@ use App\Http\Requests\UserEditAccountRequest;
 use App\Http\Requests\UserEditPasswordRequest;
 use Validator;
 use App\Models\User;
+use App\Models\Notification;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -176,6 +177,50 @@ class UsersController extends Controller
     $this->userService->updateNotification(Auth::user()->id, $request);
 
     return response()->json(['success' => 'request succeed']);
+  }
+
+  public function getUserPurchaseDetails()
+  {
+    $user = User
+      ::with('purchase', 'purchase.purchasedetail', 'purchase.purchasedetail.course')
+      ->where('id', Auth::user()->id)
+      ->first();
+
+    return view('user/purchase-details')
+      ->with('user', $user);
+  }
+
+  public function readNoti($noti_id)
+  {
+    $notification = Notification::find($noti_id);
+    $redirect_url = $notification->link;
+
+    $notification->status = 'READ';
+    $notification->save();
+
+    return redirect($redirect_url);
+  }
+
+  public function allNoti()
+  {
+    $notifications = Notification
+      ::where('user_id', Auth::user()->id)
+      ->where('status', 'UNREAD')
+      ->orderBy('created_at', 'desc')
+      ->get();
+
+    return view('user/all-notification')
+      ->with('notifications', $notifications);
+  }
+
+  public function readAllNoti()
+  {
+    $notifications = Notification
+      ::where('user_id', Auth::user()->id)
+      ->where('status', 'UNREAD')
+      ->update(['status' => 'READ']);
+
+    return redirect('/all-noti');
   }
 
   public function becomeInstructor(Request $request)

@@ -18,15 +18,15 @@
           <tr>
             <td>
               <input type="checkbox" class="filled-in" id="0" checked="checked" />
-              <label for="0">ID</label>
+              <label for="0">รหัสหมวดหมู่</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="1" checked="checked" />
-              <label for="1">Name & Description</label>
+              <label for="1">ชื่อ & รายละเอียด</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="2" checked="checked" />
-              <label for="2">Other</label>
+              <label for="2">อื่นๆ</label>
             </td>
             <td></td>
           </tr>
@@ -40,11 +40,11 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">ID<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
-          <th class="1" onclick="sortTable(1)">Name<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
-          <th class="1" onclick="sortTable(2)">Description<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
-          <th class="2" onclick="sortTable(3)">Created Date<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
-          <th class="2" onclick="sortTable(4)">Course Count<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
+          <th class="0" onclick="sortTable(0)">รหัส<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
+          <th class="1" onclick="sortTable(1)">ชื่อ<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
+          <th class="1" onclick="sortTable(2)">รายละเอียด<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
+          <th class="2" onclick="sortTable(3)">วันที่สร้าง<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
+          <th class="2" onclick="sortTable(4)">จำนวนคอร์สเรียน<i class="material-icons" style="font-size:16px;">swap_vert</i></th>
         </tr>   
       </thead>
 

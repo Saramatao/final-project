@@ -26,4 +26,9 @@ class Lecture extends Model
     return $this->hasOne('App\Models\Progress', 'lecture_id');
   }
 
+  public function bookmark()
+  {
+    return $this->hasMany('App\Models\Progress', 'lecture_id');
+  }
+
 }

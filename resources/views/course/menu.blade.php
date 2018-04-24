@@ -14,6 +14,9 @@
       <a href="{{ url('/') }}/course/{{ $data->id }}/detail" class="collection-item">รายละเอียด</a>
       <a href="{{ url('/') }}/course/{{ $data->id }}/price-coupon" class="collection-item">ราคา, คูปอง</a>
       <a href="{{ url('/') }}/course/{{ $data->id }}/setting" class="collection-item">การตั้งค่า</a>
+      @if ($data->license === 'PASS')
+        <a href="{{ url('/') }}/learn/{{ $data->slug }}/dashboard" class="collection-item">ไปยังหน้าคอร์สเรียน</a>
+      @endif
       <a href="{{ url('/') }}/home/teaching" class="collection-item">กลับสู่หน้าหลัก</a>
     </div>
 

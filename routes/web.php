@@ -2,6 +2,7 @@
 
 Route::get('/', 															'PagesController@index');
 Route::get('/view/{slug}', 										'PagesController@view');
+Route::get('/preview-lecture/{lecture_id}',   'PagesController@previewLecture');
 
 Route::get('/search', 												'PagesController@searchPage');
 Route::get('/search/{name}', 									'PagesController@search');
@@ -29,6 +30,7 @@ Route::delete('/bookmarks',                   'BookmarksController@deleteBookmar
 // MY COURSE
 Route::get('/home/my-courses', 								'HomeController@myCourses');
 Route::get('/home/teaching', 								  'HomeController@teaching');
+Route::get('/home/teaching/transaction', 			'HomeController@transaction');
 Route::post('/course',                        'CoursesController@createCourse');
 
 Route::post('/collection', 								    'CollectionsController@createCollection');
@@ -67,6 +69,7 @@ Route::patch('/course/license',               'CoursesController@saveLicense');
 
 Route::get('/course/{course_id}/setting',     'CoursesController@editSetting');
 Route::post('/course/{course_id}/setting',    'CoursesController@updateSetting');
+Route::delete('/course/{course_id}/delete',   'CoursesController@deleteCourse');
 
 Route::get('/course/{course_id}/preview/{lecture_id}',  'CoursesController@previewLecture');
 
@@ -84,9 +87,14 @@ Route::patch('/user/edit-account',      			'UsersController@updateAccount');
 Route::patch('/user/edit-password',     			'UsersController@updatePassword');
 Route::patch('/user/edit-privacy',      			'UsersController@updatePrivacy');
 Route::patch('/user/edit-notification', 			'UsersController@updateNotification');
+Route::get('/user/purchase-details',          'UsersController@getUserPurchaseDetails');
 
 Route::get('/become-instructor', 							'PagesController@becomeInstructor');
 Route::post('/become-instructor',        			'UsersController@becomeInstructor');
+
+Route::get('/read-noti/{noti_id}',            'UsersController@readNoti');
+Route::get('/all-noti',                       'UsersController@allNoti');
+Route::get('/read-all-noti',                  'UsersController@readAllNoti');
 
 // ADMIN AUTH
 Route::get('/admin', 													'AdminsController@index');
@@ -104,6 +112,7 @@ Route::get('/admin/categories', 							'AdminsController@categories');
 Route::get('/admin/advertisements', 					'AdminsController@advertisements');
 Route::get('/admin/purchase', 								'AdminsController@purchase');
 Route::get('/admin/abusereport', 							'AdminsController@abusereport');
+Route::get('/admin/transaction',              'AdminsController@transaction');
 
 Route::post('/admin/courses', 								'AdminsController@searchCourses');
 Route::post('/admin/promotions', 							'AdminsController@searchPromotions');
@@ -147,7 +156,7 @@ Route::get('lectures/{filename}', 						'FilesController@getLecture')
 Route::get('avatars/{filename}', 							'FilesController@getAvatar')
 	->where('filename', '^[^/]+$');
 Route::get('cover_images/{filename}', 				'FilesController@getCoverImage')
-	->where('filename', '^[^/]+$');
+  ->where('filename', '^[^/]+$');
 
 // 404 PAGE
 Route::get('/page-not-found', function () { return view('page-not-found'); })

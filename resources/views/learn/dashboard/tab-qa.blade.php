@@ -1,11 +1,10 @@
 <div id="qa" class="card-panel">
 
   {{--  CREATE QUESTION  --}}
-  <div>
-    สร้างคำถามใหม่
-  </div>
-  <div class="w100 auto-margin">
-    
+  <div class="w100 auto-margin card-panel">
+    <div>
+      สร้างคำถามใหม่
+    </div>
     <form role="form" class="form_question" method="POST">
       {{ csrf_field() }}
       <input name="_method" type="hidden">
@@ -145,7 +144,7 @@
 
             {{--  CREATE ANSWER  --}}
             <li class="collection-item">
-              <div style="padding-left:100px; padding-right:100px; margin-top:25px;">
+              <div class="card-panel" style="padding-left:100px; padding-right:100px; margin-top:25px;">
                 <div>
                   แสดงความคิดเห็น
                 </div>

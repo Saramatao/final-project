@@ -32,7 +32,9 @@
           </span>
          
         @else 
-
+          <span class="review-modal-trigger" style="margin-left: 15px; font-size:1.3em; text-decoration:underline;"> 
+            เพิ่มคะแนนวิจารณ์ 
+          </span>
         @endif
       </div>
 
@@ -60,18 +62,18 @@
       <form method="POST" action="/review">
         {{ csrf_field() }}
 
-        <input type="hidden" name="review_id" value="{{ $review->id }}">
+        <input type="hidden" name="review_id" value="{{ $review->id or '' }}">
         <input type="hidden" name="course_id" value="{{ $data->id }}">
 
         <div class="input-field col s12">
-          <input id="rating" name="rating" type="number" max="5" min="0" value="{{ $review->rating }}"
+          <input id="rating" name="rating" type="number" max="5" min="0" value="{{ $review->rating or 0 }}"
             class="validate" style="margin-bottom:0;">
           <label class="active" for="rating">คะแนน</label>
         </div>
 
         <div class="input-field col s12">
           <textarea name="comment" data-length="500"
-            class="materialize-textarea" style="margin-bottom:0;">{{ $review->comment }}</textarea>
+            class="materialize-textarea" style="margin-bottom:0;">{{ $review->comment or '' }}</textarea>
           <label class="active" for="comment">ความคิดเห็น</label>
         </div>
       

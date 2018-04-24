@@ -8,7 +8,9 @@ interface CourseRepositoryInterface
 
 	public static function find($id);
 
-	public static function getIdBySlug($slug);
+  public static function getIdBySlug($slug);
+  
+  public static function checkOwner($user_id, $course_id);
 
 	public static function distinctLecture($course);
 

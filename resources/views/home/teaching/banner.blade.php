@@ -12,6 +12,10 @@
         สร้างคอร์สเรียน
       </div>
 
+      <a class="btn waves-effect" href="/home/teaching/transaction">
+        ประวัติการขายคอร์สเรียน
+      </a>
+
       {{--  MODAL BOX  --}}
       <div id="modal1" class="modal">
         <div class="modal-content">
@@ -48,7 +52,9 @@
       e.preventDefault();
     
       ajaxFormRequest($(this), function(response){
-          alert(response.success);
+          // alert(response.success);
+          var course_id = response.course_id;
+          window.location.replace("{{ url('/') }}/course/" + course_id + "/title")
       }, {"method":"POST", "action":`{{ url('/') }}/course` });
     });
 

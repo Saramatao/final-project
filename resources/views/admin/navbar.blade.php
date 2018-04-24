@@ -27,7 +27,7 @@
         <a href="{{ url('/') }}/admin/advertisements">โฆษณา</a>
       </li>
       <li>
-        <a href="{{ url('/') }}/admin/purchase">ประวัติการชำระเงิน</a>
+        <a href="{{ url('/') }}/admin/transaction">ประวัติการชำระเงิน</a>
       </li>
       <li>
         <a href="{{ url('/') }}/admin/abusereport">รายงานการละเมิด</a>

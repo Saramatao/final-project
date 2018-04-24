@@ -15,7 +15,20 @@ class CourseRepository implements CourseRepositoryInterface
 	public static function find($id)
 	{
 		return Course::find($id);
-	}
+  }
+  
+  public static function checkOwner($user_id, $course_id)
+  {
+    $course = Course
+      ::where('id', $course_id)
+      ->where('instructor_id', $user_id)
+      ->first();
+
+    if ($course)
+      return true;
+
+    return false;
+  }
 
   public static function getIdBySlug($slug)
   {
@@ -87,7 +100,7 @@ class CourseRepository implements CourseRepositoryInterface
         'section'=>function($query){$query
           ->select('course_id', 'sub_number', 'title');},
         'section.lecture'=>function($query){$query
-          ->select('course_id', 'sub_number', 'title', 'content_type', 'content_path', 'status');}
+          ->select('lectures.id', 'course_id', 'sub_number', 'title', 'content_type', 'content_path', 'status');}
       ])
       ->where('slug', '=', $slug)
       ->first();

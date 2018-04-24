@@ -8,8 +8,9 @@ use App\Models\Wishlist;
 use App\Models\Course;
 use App\Models\Advertisement;
 use App\Models\Purchase;
+use App\Models\Lecture;
+
 use App\Helpers\SessionResetter;
-use App\Models\Question;
 use Auth;
 
 use App\Services\PageService;
@@ -91,6 +92,21 @@ class PagesController extends Controller
       ->with('data', $data);
   }
 
+  public function previewLecture($lecture_id)
+  {
+    $data = Lecture
+      ::where('id', $lecture_id)
+      ->where('status', 'FREE')
+      ->first();
+
+    if (! $data)
+      return redirect('/');
+
+    // return response()->download(storage_path('app/'.$lecture->content_path), null, [], null);
+    return view('view/preview')
+      ->with('data', $data);
+  }
+
   public function becomeInstructor() 
   {
     if (Auth::user()->role == 1)
@@ -109,7 +125,10 @@ class PagesController extends Controller
 
   public function search($name)
   {
-    $courses = Course::where('title', 'like', "%$name%")->get();
+    $courses = Course
+      ::where('title', 'like', "%$name%")
+      // ->where('license', 'PASS')
+      ->get();
 
     return view('search/app')
       ->with('courses', $courses);
@@ -117,7 +136,10 @@ class PagesController extends Controller
 
   public function searchForm(Request $request)
   {
-    $courses = Course::where('title', 'like', '%'. $request->searchTxt .'%')->get();
+    $courses = Course
+      ::where('title', 'like', '%'. $request->searchTxt .'%')
+      ->where('license', 'PASS')
+      ->get();
 
     return view('search/app')
       ->with('courses', $courses);

@@ -22,9 +22,9 @@
                     @endif
                     <span>{{ $lecture->title }}</span>
                     <span class="right">16:50</span>
-                    <span class="right">{{ $lecture->content_type }}</span>
+                    <span class="right" style="margin-right:15px;">{{ $lecture->content_type }}</span>
                     @if ($lecture->status == 'FREE')
-                      <span class="right">ดูตัวอย่าง</span>
+                      <a href="/preview-lecture/{{ $lecture->id }}" target="_blank" style="margin-left:15px;">ดูตัวอย่าง</a>
                     @endif
                   </li>
                 @endforeach

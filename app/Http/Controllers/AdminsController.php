@@ -159,6 +159,72 @@ class AdminsController extends Controller
       ->with('data', $data);
   }
 
+  public function transaction()
+  {
+    if ($this->checkAuthAdmin()) return redirect('/');
+
+    $data = Purchase
+      ::with('purchasedetail', 'purchasedetail.course')
+      ->orderBy('created_at', 'desc')
+      ->get();
+
+    $total_sold_price = 0;
+    $this_month_sold_price = 0;
+    $total_income = 0;
+    $this_month_income = 0;
+    $this_month_trans = 0;
+    $all_time_trans = 0;
+
+    $courses_purchased_this_month = [];
+    $courses_purchased_all_time = [];
+
+    foreach ($data as $purchase) {
+  
+      $purchased_month = date('n', strtotime($purchase->created_at));
+      $purchased_year = date('Y', strtotime($purchase->created_at));
+
+      foreach ($purchase->purchasedetail as $purchasedetail) {
+        if ($purchasedetail->status === 'PAID') {
+
+          if ($purchased_year === date('Y') && $purchased_month === date('n')) {
+      
+            $purchasedetail->purchased_this_month = true;
+            $this_month_sold_price += $purchasedetail->sold_price; 
+            $courses_purchased_this_month[] = $purchasedetail;
+            $this_month_trans++;
+          } else {
+            $purchasedetail->purchased_this_month = false;
+          }
+
+          $courses_purchased_all_time[] = $purchasedetail;
+          $total_sold_price += $purchasedetail->sold_price; 
+          $all_time_trans++;
+        }
+      }
+    }
+    
+    $total_income = $total_sold_price / 2;
+    $this_month_income = $this_month_sold_price / 2;
+
+    $format_data = new \stdClass();
+    $format_data->total_sold_price = $total_sold_price;
+    $format_data->total_income = $total_income;
+    $format_data->all_time_trans = $all_time_trans;
+    
+    $format_data->this_month_sold_price = $this_month_sold_price;
+    $format_data->this_month_income = $this_month_income;
+    $format_data->this_month_trans = $this_month_trans;
+
+    $format_data->courses_purchased_this_month = $courses_purchased_this_month;
+    $format_data->courses_purchased_all_time = $courses_purchased_all_time;
+    $format_data->data = $data;
+
+    // return response()->json($format_data);
+
+    return view('admin/transaction')
+      ->with('format_data', $format_data);
+  }
+
   // SEARCH
 
   public function searchCourses(Request $request)

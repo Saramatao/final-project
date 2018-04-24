@@ -196,11 +196,6 @@ class HomeController extends Controller
         $detail->course['learn_progress'] = ($count_progress / $detail->course['count_lecture']) * 100;
       }
     }
-    
-    // return $myCourse;
-    // return $myCollection;
-
-    // return $data;
 
     return view('home/my-courses/app')
       ->with('data', $data);
@@ -213,5 +208,73 @@ class HomeController extends Controller
       ->get();
     return view('home/teaching/app')
       ->with('data', $data);
+  }
+
+  public function transaction()
+  {
+    $data = Purchase::with([
+        'purchasedetail', 
+        'purchasedetail.course'=> function($query) {
+          $query->where('instructor_id', Auth::user()->id);
+      }])
+      ->where('status', 'completed')
+      ->orderBy('created_at', 'desc')
+      ->get();
+
+    $myTeachCourses = Course::where('instructor_id', Auth::user()->id)
+      ->get();
+
+    $transactions = [];
+    foreach ($data as $purchase) {
+      foreach ($purchase->purchasedetail as $purchasedetail) {
+        $purchasedetail->get_price = $purchasedetail->sold_price / 2;
+        if ($purchasedetail->course !== null)
+          $transactions[] = $purchasedetail;
+      }
+    }
+
+    foreach ($myTeachCourses as $course) {
+      $course->total_sold_price = 0;
+      $course->total_sold_qty = 0;
+    }
+
+    foreach ($transactions as $trans) {
+      foreach ($myTeachCourses as $course) {
+        if ($trans->course_id === $course->id) {
+          $course->total_sold_price += $trans->sold_price;
+          $course->total_sold_qty ++;
+        }
+      }
+    }
+
+    $format_data = new \stdClass();
+    $format_data->total_sold_price = 0;
+    $format_data->total_get_price = 0;
+    $format_data->total_sold_qty = 0;
+
+    foreach ($myTeachCourses as $course) {
+      $course->total_get_price = $course->total_sold_price / 2;
+
+      $format_data->total_get_price += $course->total_get_price;
+      $format_data->total_sold_price += $course->total_sold_price;
+      $format_data->total_sold_qty += $course->total_sold_qty;
+    }
+
+    
+    foreach ($myTeachCourses as $course) {
+      $purchased = [];
+      foreach ($transactions as $trans) {
+        if ($trans->course_id === $course->id)
+          $purchased[] = $trans;
+      }
+      $course->transaction = $purchased;
+    }
+
+    // return $myTeachCourses;
+    // return $transactions;
+    return view('home/teaching/transaction')
+      ->with('data', $transactions)
+      ->with('myTeachCourses', $myTeachCourses)
+      ->with('format_data', $format_data);
   }
 }

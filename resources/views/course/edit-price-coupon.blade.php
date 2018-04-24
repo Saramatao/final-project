@@ -12,7 +12,7 @@
         {{ csrf_field() }}
         <input type="hidden" name="course_id" value="{{ $data->id }}">
 
-        <div class="input-field col s4">
+        {{-- <div class="input-field col s4">
           <select name="price">
             <option value="0" disabled>ราคาคอร์สเรียน</option>
             <option value="0"
@@ -37,6 +37,10 @@
               {{ ($data->price == 1000) ? 'selected' : '' }}>฿1000</option>
           </select>
           <label>ราคาคอร์สเรียน</label>
+        </div> --}}
+
+        <div class="input-field col s4">
+          <input type="number" name="price" min="0" value="{{ $data->price }}">
         </div>
 
         <div class="center-align col s4 mar-top-25">

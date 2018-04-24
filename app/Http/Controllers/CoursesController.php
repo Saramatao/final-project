@@ -12,6 +12,7 @@ use App\Models\Section;
 use App\Models\Lecture;
 use App\Models\Category;
 use App\Models\Coupon;
+use App\Models\Question;
 
 use App\Models\Target;
 use App\Models\Benefit;
@@ -133,7 +134,10 @@ class CoursesController extends Controller
     $course->instructor_id = Auth::user()->id;
     $course->save();
 
-    return response()->json(['success' => 'create course succeed']);
+    return response()->json([
+      'success' => 'create course succeed',
+      'course_id' => $rand_id[0]
+      ]);
   }
 
   public function saveLectureVdo(Request $request)
@@ -449,5 +453,32 @@ class CoursesController extends Controller
       ->with('sections', $sections)
       ->with('course_id', $course_id)
       ->with('lecture_ids', $lecture_ids);
+  }
+
+  public function deleteCourse($course_id)
+  {
+    $lecture = Lecture::where('course_id', $course_id)->first();
+    if ($lecture) {
+      $lecture->bookmark()->delete();
+      $lecture->progress()->delete();
+      $lecture->delete();
+    }
+    
+    $question = Question::where('course_id', $course_id)->first();
+    if ($question) {
+      $question->answer()->delete();
+      $question->delete();
+    }
+
+    $course = Course::where('id', $course_id)->first();
+    $course->target()->delete();
+    $course->benefit()->delete();
+    $course->prerequisite()->delete();
+    $course->review()->delete();
+    $course->section()->delete();
+    $course->coupon()->delete();
+    $course->delete();
+
+    return redirect('/home/teaching');
   }
 }

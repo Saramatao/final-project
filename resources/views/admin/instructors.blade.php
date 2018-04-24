@@ -18,19 +18,19 @@
           <tr>
             <td>
               <input type="checkbox" class="filled-in" id="0" checked="checked" />
-              <label for="0">ID & Name</label>
+              <label for="0">รหัส & ชื่อ</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="1" checked="checked" />
-              <label for="1">Email & Status</label>
+              <label for="1">อีเมล์ & สถานะ</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="2" checked="checked" />
-              <label for="2">Details</label>
+              <label for="2">รายละเอียด</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="3" checked="checked" />
-              <label for="3">Contact Details</label>
+              <label for="3">รายละเอียดการติดต่อ</label>
             </td>
           </tr>
         </thead>
@@ -43,23 +43,23 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">ID</th>
-          <th class="0" onclick="sortTable(1)">Name</th>
-          <th class="0" onclick="sortTable(2)">Last Name</th>
-          <th class="1" onclick="sortTable(3)">Email</th>
-          <th class="1" onclick="sortTable(4)">Status</th>
-          <th class="2" onclick="sortTable(5)">Headline</th>
-          <th class="2" onclick="sortTable(6)">Biography</th>
-          <th class="1" onclick="sortTable(7)">Paypal ID</th>
-          <th class="3" onclick="sortTable(8)">Website</th>
+          <th class="0" onclick="sortTable(0)">รหัส</th>
+          <th class="0" onclick="sortTable(1)">ชื่อ</th>
+          <th class="0" onclick="sortTable(2)">นามสกุล</th>
+          <th class="1" onclick="sortTable(3)">อีเมล์</th>
+          <th class="1" onclick="sortTable(4)">สถานะ</th>
+          <th class="2" onclick="sortTable(5)">อาชีพ</th>
+          <th class="2" onclick="sortTable(6)">ประวัติ</th>
+          <th class="1" onclick="sortTable(7)">รหัส Paypal</th>
+          <th class="3" onclick="sortTable(8)">เว็บไซต์</th>
           <th class="3" onclick="sortTable(9)">Twitter</th>
           <th class="3" onclick="sortTable(10)">Facebook</th>
           <th class="3" onclick="sortTable(11)">LinkedIn</th>
           <th class="3" onclick="sortTable(12)">Youtube</th>
           <th class="3" onclick="sortTable(13)">Git Hub</th>
-          <th class="2">Avatar</th>
-          <th class="2" onclick="sortTable(15)">Teaching Date</th>
-          <th class="2" onclick="sortTable(16)">Joined Date</th>
+          <th class="2">รูปโปรไฟล์</th>
+          <th class="2" onclick="sortTable(15)">วันที่เริ่มสอน</th>
+          <th class="2" onclick="sortTable(16)">วันที่เข้าร่วม</th>
         </tr>   
       </thead>
 

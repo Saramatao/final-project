@@ -18,19 +18,19 @@
         <tr>
           <td>
             <input type="checkbox" class="filled-in" id="0" checked="checked" />
-            <label for="0">ID</label>
+            <label for="0">รหัสโปรโมชั่น</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="1" checked="checked" />
-            <label for="1">Name & Description</label>
+            <label for="1">ชื่อ & คำอธิบาย</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="2" checked="checked" />
-            <label for="2">Discount</label>
+            <label for="2">ส่วนลด</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="3" checked="checked" />
-            <label for="3">Other</label>
+            <label for="3">อื่นๆ</label>
           </td>
         </tr>
       </thead>
@@ -42,15 +42,15 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">ID</th>
-          <th class="1" onclick="sortTable(1)">Name</th>
-          <th class="1" onclick="sortTable(2)">Description</th>
-          <th class="2" onclick="sortTable(3)">Type</th>
-          <th class="2" onclick="sortTable(4)">Value</th>
-          <th class="3" onclick="sortTable(5)">Start Date</th>
-          <th class="3" onclick="sortTable(6)">Stop Date</th>
-          <th class="3" onclick="sortTable(7)">Status</th>
-          <th class="3">Created Date</th>
+          <th class="0" onclick="sortTable(0)">รหัส</th>
+          <th class="1" onclick="sortTable(1)">ชื่อ</th>
+          <th class="1" onclick="sortTable(2)">คำอธิบาย</th>
+          <th class="2" onclick="sortTable(3)">ประเภท</th>
+          <th class="2" onclick="sortTable(4)">ส่วนลด</th>
+          <th class="3" onclick="sortTable(5)">วันที่เริ่ม</th>
+          <th class="3" onclick="sortTable(6)">วันที่จบ</th>
+          <th class="3" onclick="sortTable(7)">สถานะ</th>
+          <th class="3">วันที่สร้าง</th>
         </tr>
       </thead>
 

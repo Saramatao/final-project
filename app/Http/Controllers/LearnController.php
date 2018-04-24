@@ -14,6 +14,7 @@ use App\Models\Question;
 use App\Models\Answer;
 use App\Models\Progress;
 use App\Models\Review;
+use App\Models\Notification;
 
 class LearnController extends Controller
 {
@@ -61,8 +62,6 @@ class LearnController extends Controller
           else 
             $lecture->learn_status = false;
         }
-
-
       }
     }
     
@@ -123,13 +122,25 @@ class LearnController extends Controller
 
   public function createQuestion(Request $request)
   {
-    $course_id = Course::where('slug', '=', $request->slug)->first()->id;
+    $course = Course::where('slug', '=', $request->slug)->first();
+    $course_id = $course->id;
+    
     $question = new Question();
     $question->title = $request->title;
     $question->content = $request->question;
     $question->course_id = $course_id;
     $question->student_id = Auth::user()->id;
     $question->save();
+
+    if (Auth::user()->id !== $course->instructor_id) {
+      $notification = new Notification();
+      $notification->type = 'QA';
+      $notification->message = Auth::user()->name . " " .Auth::user()->last_name . 
+        " ได้โพสต์คำถามใน '$course->title'";
+      $notification->link = "/learn/$course->slug/dashboard#qa";
+      $notification->user_id = $course->instructor_id;
+      $notification->save();
+    }
 
     return response()->json(['success' => $question]);
   }

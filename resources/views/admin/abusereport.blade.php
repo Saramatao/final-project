@@ -17,19 +17,19 @@
           <tr>
             <td>
               <input type="checkbox" class="filled-in" id="0" checked="checked" />
-              <label for="0">Course ID</label>
+              <label for="0">รหัสคอร์ส</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="1" checked="checked" />
-              <label for="1">User ID</label>
+              <label for="1">รหัสผู้ใช้</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="2" checked="checked" />
-              <label for="2">Abuse Report</label>
+              <label for="2">รายงานการละเมิด</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="3" checked="checked" />
-              <label for="3">Other</label>
+              <label for="3">อื่นๆ</label>
             </td>
           </tr>
         </thead>
@@ -42,11 +42,11 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">Course_ID</th>
-          <th class="1" onclick="sortTable(1)">Student_ID</th>
-          <th class="2" onclick="sortTable(2)">Abuse_Type</th>
-          <th class="2" onclick="sortTable(3)">Comment</th>
-          <th class="3" onclick="sortTable(4)">Created_Date</th>
+          <th class="0" onclick="sortTable(0)">รหัสคอร์ส</th>
+          <th class="1" onclick="sortTable(1)">รหัสผู้ใช้</th>
+          <th class="2" onclick="sortTable(2)">รายงานการละเมิด</th>
+          <th class="2" onclick="sortTable(3)">ความคิดเห็น</th>
+          <th class="3" onclick="sortTable(4)">วันที่สร้าง</th>
         </tr>   
       </thead>
 

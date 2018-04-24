@@ -284,7 +284,7 @@ CREATE TABLE purchase (
   id                      varchar(10)   NOT NULL,
   invoice                 varchar(30),
   payment_type            varchar(30)   NOT NULL,
-  status                  varchar(10)   DEFAULT 'CART',
+  status                  varchar(10)   DEFAULT 'completed',
   paypal_pay_id           varchar(50),
   paypal_paid_date        datetime,
   paypal_payer_id         varchar(50),

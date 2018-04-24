@@ -44,10 +44,11 @@
             <div>
               ราคาสุทธิ: ฿ {{ $course->price }}
             </div>
+            <div>
+              วันที่สร้าง: {{ $course->created_at }}
+            </div>
           </div>
-          
         </div>
-      {{--  </div>  --}}
     </a>
   @endforeach
 

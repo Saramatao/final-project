@@ -25,7 +25,7 @@
     {{--  SECTION  --}}
     @foreach ($data->section as $i => $section)
 
-      <div class="section-toggle btn col s12">
+      <div class="mar-top-25 section-toggle btn col s12">
         แสดง/ซ่อน {{ $section->title }}
       </div>
       <fieldset class="mar-bot-25 hoverable"
@@ -203,7 +203,7 @@
     <div class="section-content"></div>
     
     <div class="center-align mar-bot-25">
-      <a class="btn-large add-section btn" style="margin">
+      <a class="btn-large add-section btn mar-top-25">
         <i class="material-icons large left">library_add</i>
         เพิ่มหัวข้อบทเรียน  
       </a>

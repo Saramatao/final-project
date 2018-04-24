@@ -143,35 +143,37 @@
             {{ $data->user->student->headline }}
           </div>
           <div>
-            @if ($data->user->instructor->website !== null)
-              <a target="_blank" href="http://{{ $data->user->instructor->website }}">
-                <img src="{{ asset('images/world.svg') }}" style="width:35px;">
-              </a>
-            @endif
-            @if ($data->user->instructor->twitter !== null)
-              <a target="_blank" href="https://twitter.com/{{ $data->user->instructor->twitter }}">
-                <img src="{{ asset('images/twitter.svg') }}" style="width:35px;">
-              </a>
-            @endif 
-            @if ($data->user->instructor->facebook !== null)
-              <a target="_blank" href="https://facebook.com/{{ $data->user->instructor->facebook }}">
-                <img src="{{ asset('images/facebook.svg') }}" style="width:35px;">
-              </a>
-            @endif
-            @if ($data->user->instructor->youtube !== null) 
-              <a target="_blank" href="https://youtube.com/channel/{{ $data->user->instructor->youtube }}">
-                <img src="{{ asset('images/youtube.svg') }}" style="width:35px;"> 
-              </a>
-            @endif
-            @if ($data->user->instructor->github !== null)
-              <a target="_blank" href="https://github.com/{{ $data->user->instructor->github }}">
-                <img src="{{ asset('images/github.svg') }}" style="width:35px;">
-              </a>
-            @endif 
-            @if ($data->user->instructor->linkedin !== null)
-              <a target="_blank" href="https://linkedin.com/in/{{ $data->user->instructor->linkedin }}">
-                <img src="{{ asset('images/linkedin.svg') }}" style="width:35px;">
-              </a> 
+            @if ($data->user->instructor)
+              @if ($data->user->instructor->website !== null)
+                <a target="_blank" href="http://{{ $data->user->instructor->website }}">
+                  <img src="{{ asset('images/world.svg') }}" style="width:35px;">
+                </a>
+              @endif
+              @if ($data->user->instructor->twitter !== null)
+                <a target="_blank" href="https://twitter.com/{{ $data->user->instructor->twitter }}">
+                  <img src="{{ asset('images/twitter.svg') }}" style="width:35px;">
+                </a>
+              @endif 
+              @if ($data->user->instructor->facebook !== null)
+                <a target="_blank" href="https://facebook.com/{{ $data->user->instructor->facebook }}">
+                  <img src="{{ asset('images/facebook.svg') }}" style="width:35px;">
+                </a>
+              @endif
+              @if ($data->user->instructor->youtube !== null) 
+                <a target="_blank" href="https://youtube.com/channel/{{ $data->user->instructor->youtube }}">
+                  <img src="{{ asset('images/youtube.svg') }}" style="width:35px;"> 
+                </a>
+              @endif
+              @if ($data->user->instructor->github !== null)
+                <a target="_blank" href="https://github.com/{{ $data->user->instructor->github }}">
+                  <img src="{{ asset('images/github.svg') }}" style="width:35px;">
+                </a>
+              @endif 
+              @if ($data->user->instructor->linkedin !== null)
+                <a target="_blank" href="https://linkedin.com/in/{{ $data->user->instructor->linkedin }}">
+                  <img src="{{ asset('images/linkedin.svg') }}" style="width:35px;">
+                </a> 
+              @endif
             @endif
           </div>
           <div>

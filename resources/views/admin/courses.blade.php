@@ -18,19 +18,19 @@
         <tr>
           <td>
             <input type="checkbox" class="filled-in" id="0" checked="checked" />
-            <label for="0">ID & Slug</label>
+            <label for="0">รหัส & ลิงค์</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="1" checked="checked" />
-            <label for="1">Details</label>
+            <label for="1">รายละเอียดย่อย</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="2" checked="checked" />
-            <label for="2">Status</label>
+            <label for="2">สถานะ</label>
           </td>
           <td>
             <input type="checkbox" class="filled-in" id="3" checked="checked" />
-            <label for="3">Others</label>
+            <label for="3">อื่นๆ</label>
           </td>
         </tr>
       </thead>
@@ -42,23 +42,23 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">ID</th>
-          <th class="1" onclick="sortTable(1)">Title</th>
-          <th class="0" onclick="sortTable(2)">Slug</th>
-          <th class="1" onclick="sortTable(3)">Subtitle</th>
-          <th class="1" onclick="sortTable(4)">Description</th>
-          <th class="1" onclick="sortTable(5)">Language</th>
-          <th class="1" onclick="sortTable(6)">Level</th>
-          <th class="1">Cover</th>
-          <th class="1">Video</th>
-          <th class="2" onclick="sortTable(9)">Status</th>
-          <th class="2" onclick="sortTable(10)">Price</th>
-          <th class="2" onclick="sortTable(11)">License</th>
-          <th class="2" onclick="sortTable(12)">Feedback</th>
-          <th class="3" onclick="sortTable(13)">Category</th>
-          <th class="3" onclick="sortTable(14)">Promotion_ID</th>
-          <th class="3" onclick="sortTable(15)">Instructor_ID</th>
-          <th class="3" onclick="sortTable(16)">Created Date</th>
+          <th class="0" onclick="sortTable(0)">รหัสคอร์ส</th>
+          <th class="1" onclick="sortTable(1)">ชื่อ</th>
+          <th class="0" onclick="sortTable(2)">ลิงค์</th>
+          <th class="1" onclick="sortTable(3)">ชื่อรอง</th>
+          <th class="1" onclick="sortTable(4)">คำอธิบาย</th>
+          <th class="1" onclick="sortTable(5)">ภาษา</th>
+          <th class="1" onclick="sortTable(6)">ระดับ</th>
+          <th class="1">ปก</th>
+          <th class="1">วีดีโอ</th>
+          <th class="2" onclick="sortTable(9)">สถานะ</th>
+          <th class="2" onclick="sortTable(10)">ราคา</th>
+          <th class="2" onclick="sortTable(11)">การอนุญาต</th>
+          <th class="2" onclick="sortTable(12)">ความเห็นผู้ดูแล</th>
+          <th class="3" onclick="sortTable(13)">ประเภท</th>
+          <th class="3" onclick="sortTable(14)">รหัสโปรโมชั่น</th>
+          <th class="3" onclick="sortTable(15)">รหัสผู้สอน</th>
+          <th class="3" onclick="sortTable(16)">วันที่สร้าง</th>
         </tr>
       </thead>
 

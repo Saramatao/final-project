@@ -18,15 +18,15 @@
           <tr>
             <td>
               <input type="checkbox" class="filled-in" id="0" checked="checked" />
-              <label for="0">Course ID</label>
+              <label for="0">รหัสคอร์สเรียน</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="1" checked="checked" />
-              <label for="1">Name & Description</label>
+              <label for="1">ชื่อ & รายละเอียด</label>
             </td>
             <td>
               <input type="checkbox" class="filled-in" id="2" checked="checked" />
-              <label for="2">Other</label>
+              <label for="2">อื่นๆ</label>
             </td>
             <td></td>
           </tr>
@@ -40,12 +40,12 @@
     <table class="bordered responsive-table" id="myTable">
       <thead>
         <tr>
-          <th class="0" onclick="sortTable(0)">Course ID</th>
-          <th class="1" onclick="sortTable(1)">Ads. Title</th>
-          <th class="1" onclick="sortTable(2)">Ads. Detail</th>
-          <th class="2" onclick="sortTable(3)">Course Title</th>
-          <th class="2" onclick="sortTable(4)">Course Cover</th>
-          <th class="2" onclick="sortTable(5)">Created Date</th>
+          <th class="0" onclick="sortTable(0)">รหัสคอร์สเรียน</th>
+          <th class="1" onclick="sortTable(1)">ชื่อโฆษณา</th>
+          <th class="1" onclick="sortTable(2)">รายละเอียดโฆษณา</th>
+          <th class="2" onclick="sortTable(3)">ชื่อคอร์ส</th>
+          <th class="2" onclick="sortTable(4)">หน้าปก</th>
+          <th class="2" onclick="sortTable(5)">วันที่สร้าง</th>
         </tr>   
       </thead>
 

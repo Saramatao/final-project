@@ -7,9 +7,10 @@
 @endif
 
 @if ($data->content_type == 'TXT')
-  <div style="width:100%; height:80vh;">
-    {{ $data->content_text }}
-  </div>
+<div style="width:90%; min-height:80vh; margin-left:5%; margin-top:5%;" class="card-panel hoverable">
+<h3>{{ $data->title }} </h3>
+  {{ $data->content_text }}
+</div>
 @endif
 
 @if ($data->content_type == 'PDF')

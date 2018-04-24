@@ -107,7 +107,7 @@ INSERT INTO courses (id, title, slug, subtitle, description, language, level, co
     price, promotion_id, category_id, instructor_id)
   VALUES 
     ('COURSE0001', 'How to FLY in 7 days', 'how-to-fly-in-7-days', 'how to fly easily in only 7 days', 'lorem discription', 'English', 'Low', 'cover_images/sample02.jpg', 'sample-vdo.mp4', 200, 'PRO0000001', 3,'US00000001'),
-    ('COURSE0002', 'Learn Java', 'learn-java', 'Learn the Java Basic Level in Short Time','anothoer lorem discription', 'Thai', 'High', 'cover_images/sample02.jpg', 'sample-vdo.mp4', 600, 'PRO0000002', 2, 'US00000004'),
+    ('COURSE0002', 'Learn Java', 'learn-java', 'Learn the Java Basic Level in Short Time','anothoer lorem discription', 'Thai', 'High', 'cover_images/sample02.jpg', 'sample-vdo.mp4', 600, 'PRO0000002', 2, 'US00000001'),
     ('COURSE0003', 'How to diet in 7 days', 'how-to-diet-in-7-days', 'Diet Shortcut the fastest way', 'loreem again descript', 'Thai', 'Medium', 'cover_images/sample03.jpg', 'sample-vdo.mp4', 900, 'PRO0000003', 5, 'US00000001'),
     ('COURSE0004', 'Javascipt Foundation', 'javascript-foundation', 'Learning the foundation of JS', 'loreem blaaa descript', 'Thai', 'Low', 'cover_images/sample03.jpg', 'sample-vdo.mp4', 500, null, 1, 'US00000004'),
     ('COURSE0005', 'AJAX Crash Course', 'ajax-crash-course',  'AJAX Crash Course that makes you understand', 'loreem lol descript', 'English', 'High', 'cover_images/default-cover-image.jpg', 'sample-vdo.mp4', 300, null, 3, 'US00000006');

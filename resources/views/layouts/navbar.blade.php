@@ -7,9 +7,9 @@
           <li>
             <a href="/">Cool Course</a> 
           <li>
-          <li>
+          {{-- <li>
             <a href="#"><i class="material-icons">view_list</i></a> 
-          <li>
+          <li> --}}
           {{--  <li style="width:28%;height:50px; margin-top:5px;">   
             <form>
               <div class="input-field">
@@ -55,7 +55,7 @@
                 <i class="material-icons" class="nav-hover">favorite</i></a>
             </li>
             <li>
-              <a href="" class="nav-hover dropdown-button" data-activates="dropdown-nav-notification">
+              <a href="{{ url('/') }}/all-noti" class="nav-hover dropdown-button" data-activates="dropdown-nav-notification">
                 <i class="material-icons" class="nav-hover">notifications</i></a>
             </li>
             <li>
@@ -75,18 +75,25 @@
                   </a>
                 </li>
               @endforeach
+              <li class="dash-hover">
+                <a href="{{ url('/') }}/home/my-courses#wishlist">ดูรายการโปรดทั้งหมด</a>
+              </li>
             </ul>
 
             {{--  DROP DOWN CONTENT NOTIFICATION  --}}
             <ul id="dropdown-nav-notification" class="dropdown-content" style="margin-top:64px; min-width:200px;">
+              @foreach (Auth::user()->lastThreeNotification as $noti)
+                @if ($noti->status === 'UNREAD')
+                  <li class="dash-hover">
+                    <a href="{{ url('/') }}/read-noti/{{ $noti->id }}">{{ $noti->message }} <br>
+                      เมื่อ {{ date('d/m/y', strtotime($noti->created_at)) }} <br>
+                      เวลา {{ date('H:m A', strtotime($noti->created_at)) }} <br>
+                    </a>
+                  </li>
+                @endif
+              @endforeach
               <li class="dash-hover">
-                <a href="#!">notifications</a>
-              </li>
-              <li class="dash-hover">
-                <a href="#!">notifications</a>
-              </li>
-              <li class="dash-hover">
-                <a href="#!">notifications</a>
+                <a href="{{ url('/') }}/all-noti"> ดูการแจ้งเตือนทั้งหมด</a>
               </li>
             </ul>
             
@@ -99,7 +106,7 @@
                 <a href="{{ url('/') }}/user/edit-profile">แก้ไขข้อมูลส่วนตัว</a>
               </li>
               <li class="dash-hover">
-                <a href="#!">ประวัติการชำระเงิน</a>
+                <a href="{{ url('/') }}/user/purchase-details">ประวัติการชำระเงิน</a>
               </li>
               <li class="divider"></li>
               <li class="dash-hover">

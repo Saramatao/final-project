@@ -9,19 +9,31 @@
 
     <div>
       @if ($data->license == 'NOT')
-        <div>
+        <div style="margin-bottom:5px;">
           คอร์สเรียนของท่านยังไม่ได้ผ่านการตรวจสอบ
           <form action="{{ url('/') }}/course/{{ $data->id }}/setting" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="course_id" value="{{ $data->id }}">
-          
+            
             <button class="btn">ส่งให้ผู้ดูแลตวจสอบ</button>
+          </form>
+        </div>
+
+        <div>
+          <form action="{{ url('/') }}/course/{{ $data->id }}/delete" method="POST">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+            <input type="hidden" name="course_id" value="{{ $data->id }}">
+          
+            <button class="btn red">ลบคอร์สเรียน</button>
           </form>
         </div>
       @elseif ($data->license == 'PENDING')
         <div>
           คอร์สเรียนของท่านอยู่ระหว่างการตรวจสอบ
-          <button class="btn disabled">ส่งให้ผู้ดูแลตวจสอบ</button>
+          <div>
+            <button class="btn disabled">ส่งให้ผู้ดูแลตวจสอบ</button>
+          </div>
         </div>
 
       @elseif ($data->license == 'PASS')
